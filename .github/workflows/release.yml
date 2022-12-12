@@ -6,6 +6,7 @@ on:
       - next
       - beta
       - "*.x"
+      - main
 
 permissions:
   contents: write
