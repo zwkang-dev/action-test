@@ -1,6 +1,6 @@
 {
   "name": "@zwkang-dev/action-test",
-  "version": "0.0.0",
+  "version": "0.0.1-beta.0",
   "packageManager": "pnpm@7.9.0",
   "description": "> description:",
   "publishConfig": {
@@ -44,7 +44,7 @@
     "test": "vitest run",
     "build": "tsup",
     "start": "tsx src/index.ts",
-    "release": "bumpp && npm publish",
+    "release": "bumpp --tag \"v\" && npm publish",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build"
   },
