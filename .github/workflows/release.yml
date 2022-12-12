@@ -30,6 +30,10 @@ jobs:
           node-version: 'lts/*'
           registry-url: https://npm.pkg.github.com/
           scope: '@zwkang-dev'
+          
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
 
       # Install dependencies (required by Run tests step)
       - name: Install dependencies
