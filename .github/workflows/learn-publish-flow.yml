@@ -21,6 +21,13 @@ jobs:
           node-version: 'lts/*'
           registry-url: https://npm.pkg.github.com/
           scope: '@zwkang-dev'
-      - run: npx pnpm install
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+            - args: [--global, gulp, prettier, typescript]
+      - run: pnpm install
       - run: npx build
       - run: npx test
