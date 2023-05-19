@@ -1,0 +1,25 @@
+name: learn-push-flow
+run-name: ${{ github.actor }} is learn publish flow in github action
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+job:
+  # job name
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/*'
+          registry-url: https://npm.pkg.github.com/
+          scope: '@zwkang-dev'
+      - run: npx build
+      - run: npx test
